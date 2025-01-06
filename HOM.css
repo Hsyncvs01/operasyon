@@ -1,0 +1,330 @@
+/* Genel stil */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    line-height: 1.6;
+    color: #333;
+ 
+    
+}
+
+/* Başlık kısmı */
+.headertitle .header h1 {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(45deg, #FF4C4C, #FF7F7F); /* Kırmızıdan beyaza geçen gradient */
+    color: white;
+    font-size: 2.8em;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
+    transition: all 0.3s ease-in-out;
+}
+
+.headertitle .header h1:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #D03F3F, #FF4C4C);
+}
+
+/* Tablo stilini düzenleme */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    background-color: white;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 18px;
+    border: 1px solid #ddd;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Başlık stil */
+thead {
+    background-color: #FF4C4C;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+th {
+    background-color: #FF4C4C;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form container */
+.form-container {
+    margin: 20px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+    border-color: #FF4C4C;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 76, 76, 0.6);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Gönder butonu */
+input[type="submit"] {
+    background-color: #FF4C4C;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for submit button */
+input[type="submit"]:hover {
+    background-color: #D03F3F;
+    transform: scale(1.05);
+}
+
+/* Mobil görünüm için düzenlemeler */
+@media (max-width: 768px) {
+    /* Tabloları mobilde blok hale getirme */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        border: none;
+    }
+
+    thead, tbody {
+        display: block;
+    }
+
+    th, td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    th {
+        background-color: #FF4C4C;
+        color: white;
+        font-weight: bold;
+        padding: 15px;
+        text-transform: uppercase;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        text-align: center;
+    }
+
+    td:before {
+        content: attr(data-label);
+        color: white;
+        background-color: #FF4C4C; /* Kırmızı arka plan */
+        padding: 8px;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+        border-radius: 5px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    }
+
+    th {
+        display: none; /* Mobilde th'yi gizle */
+    }
+
+    /* Form elemanlarının mobilde düzgün görünmesi */
+    .form-container {
+        margin: 10px;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    td:before {
+        font-size: 12px;
+    }
+}
+.success-message {
+    display: none; /* Başlangıçta gizli */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50; /* Yeşil renk */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 1000; /* Mesajın üstte görünmesini sağlar */
+    transition: all 0.3s ease;
+}
+
+/* Başarı mesajı stili */
+.success-message {
+    display: none; /* Başlangıçta gizli */
+    position: fixed;
+    top: 50%; /* Yatayda tam ortalama */
+    left: 50%; /* Dikeyde tam ortalama */
+    transform: translate(-50%, -50%); /* Yarı yarıya kaydırma ile tam ortalama */
+    background-color: #4CAF50; /* Yeşil renk */
+    color: white;
+    padding: 50px 70px; /* Daha büyük iç boşluk */
+    border-radius: 15px; /* Köşe yuvarlama */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Daha belirgin gölge */
+    font-size: 35px; /* Yazı boyutunu 35px yapıyoruz */
+    text-align: center;
+    z-index: 1000; /* Mesajın üstte görünmesini sağlar */
+    transition: all 0.3s ease;
+    max-width: 650px; /* Maksimum genişlik sınırı */
+    width: 100%; /* Genişlik %100 olacak, ancak max-width ile sınırlanacak */
+    display: flex;
+    flex-direction: column; /* Dikey düzen */
+    justify-content: space-between; /* İçeriği yayma */
+    align-items: center; /* Yatayda ortalama */
+    height: 300px; /* Yüksekliği ayarladık */
+}
+
+.success-message .close-btn {
+    background-color: #ffffff;
+    color: #4CAF50;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 20px; /* Buton ile içerik arasında biraz mesafe */
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Butonu ortalar */
+}
+
+.success-message .close-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Mobil görünüm için stil */
+@media (max-width: 768px) {
+    .success-message {
+        padding: 30px 50px; 
+        font-size: 24px; 
+        height: auto; 
+        max-width: 90%; 
+    }
+
+    .success-message .close-btn {
+        padding: 12px 25px; 
+        font-size: 16px; 
+    }
+}
+
+html, body {
+    height: 100%;   
+    margin: 0;      
+    display: grid;  
+    place-items: center; 
+}
+
+
+.button-container {
+    display: grid; 
+    gap: 10px;      
+}
+
+
+button {
+    background-color: red; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+
+button:hover {
+    background-color:white;
+    transform: scale(1.05);
+    color: red;
+}
+
+
+button:active {
+    background-color: #388e3c;
+    transform: scale(1);
+}
+
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(72, 255, 128, 0.5);
+}
+.birim{
+    color: red;
+    text-shadow: rgba(0, 0, 0, 0.2);;
+}
+@media (max-width: 768px) {
+    .headertitle .header h1{
+        font-size: 16px;
+    }
+    .birim{
+        font-size: 16px;
+    }
+}
